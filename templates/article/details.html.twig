@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <h1>detail article : {{ allarticles.titre }}</h1>
+    <p>date de création : {{ allarticles.dateCreation|date('Y-m-d H:i:s') }}</p>
+    <p>catégorie : {{ allarticles.categorie.titre }}
+    {{ include('article/admin.html.twig')}}
+    <div>
+        <h2>Listes Commentaires</h2>
+        {% if is_granted('ROLE_ADMIN') %}
+            {{ include('commentaire/admin.html.twig') }}
+        {% else %}
+            {% for com in coms %}
+                {% if com.etat == 1 %}
+                    <h3>{{ com.commentaire }}</h3>
+                    <p>nom :{{ com.auteur.nom }}</p>
+                    <p>{{ com.datePublication|date('Y-m-d H:i:s') }}</p>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}

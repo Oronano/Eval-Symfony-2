@@ -5,12 +5,189 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {% block stylesheets %}
-        {% endblock %}
+        <style>
+        .main-nav {
+    background-color: #333; /* Choose your desired background color */
+    padding: 10px;
+}
 
+.main-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav li {
+    display: inline;
+    margin-right: 10px; /* Adjust spacing between menu items */
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: white; /* Choose your desired text color */
+    font-weight: bold;
+}
+
+/* Change link color on hover */
+.main-nav a:hover {
+    color: #ffcc00; /* Choose your desired hover color */
+}
+.register-title {
+    text-align: center;
+    color: #333; /* Choose your desired text color */
+}
+
+/* Style for the registration form */
+.registration-form {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f4f4f4; /* Choose your desired background color */
+    border-radius: 5px;
+}
+
+.registration-form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555; /* Choose your desired label color */
+}
+
+.registration-form input, .registration-form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.registration-form button {
+    background-color: #333; /* Choose your desired button background color */
+    color: white; /* Choose your desired button text color */
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.registration-form button:hover {
+    background-color: #ffcc00; /* Choose your desired button hover color */
+}
+.home-title {
+    text-align: center;
+    color: #333; /* Choose your desired text color */
+}
+
+/* Style for the main container */
+.all-container {
+    display: flex;
+    justify-content: space-around;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+/* Style for the category list */
+.category-list {
+    flex: 1;
+    padding: 10px;
+    background-color: #f4f4f4; /* Choose your desired background color */
+    border-radius: 5px;
+}
+
+h2 {
+    color: #333; /* Choose your desired text color */
+}
+
+.category-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.category-list li {
+    margin-bottom: 8px;
+}
+
+
+/* Style for the create section */
+.create-section {
+    flex: 1;
+    padding: 10px;
+    background-color: #f4f4f4; /* Choose your desired background color */
+    border-radius: 5px;
+}
+
+.create-section h2 {
+    color: #333; /* Choose your desired text color */
+}
+
+.detail-cat-title {
+    text-align: center;
+    color: #333; /* Choose your desired text color */
+}
+
+/* Style for the category title */
+.category-title {
+    text-align: center;
+    color: #333; /* Choose your desired text color */
+}
+
+/* Style for the articles container */
+.articles-container {
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+h1 {
+    color: #333; /* Choose your desired text color */
+}
+
+.articles-container h3 {
+    margin-bottom: 8px;
+}
+
+.articles-container a {
+    text-decoration: none;
+    color: #555; /* Choose your desired link color */
+}
+
+.articles-container a:hover {
+    color: #ffcc00; /* Choose your desired link hover color */
+}
+
+/* Style for the admin section */
+.admin-section {
+    max-width: 400px;
+    background-color: #f4f4f4; /* Choose your desired background color */
+    border-radius: 5px;
+}
+
+a{
+ display: inline-block;
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #333; /* Choose your desired background color */
+    color: white; /* Choose your desired text color */
+    text-decoration: none;
+    border-radius: 5px;
+}
+.doublediv {
+    display: flex;
+    justify-content: space-around;
+}
+</style>
+        {% endblock %}
         {% block javascripts %}
         {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <nav class="main-nav">
+    <ul>
+        <li><a href="{{ path('app_categories') }}">accueil</a></li>
+        <li><a href="{{ path('app_login') }}">Login</a></li>
+        <li><a href="{{ path('app_register') }}">Register</a></li>
+        <li><a href="{{ path('app_article') }}">Articles</a></li>
+        <li><a href="{{ path('app_logout') }}">logout</a></li>
+        <li><a href="{{ path('app_commentaire') }}">Commentaire</a></li>
+    </ul>
+</nav>
+        {% block body %}
+        {% endblock %}
     </body>
 </html>

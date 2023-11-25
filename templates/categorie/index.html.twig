@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CategorieController!{% endblock %}
+
+{% block body %}    
+    <h1 class="home-title">Page d'accueil!</h1>
+    <div class="all-container">
+        <div class="category-list">
+            {% if allcategories is not empty %}
+                <h2>Liste des catégories</h2>
+                <ul>
+                    {% for categorie in allcategories %}
+                        <li><a href="{{ path('details_categorie', {'id': categorie.id}) }}">{{ categorie.titre }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>Aucune catégorie n'a été trouvée.</p>
+            {% endif %}
+        </div>
+        <div class="create-section">
+            {{ include('categorie/admin.html.twig')}}
+        </div>
+    </div>
+{% endblock %}

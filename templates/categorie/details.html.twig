@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CategorieController!{% endblock %}
+
+{% block body %}
+
+    <h1 class="category-title">Titre de la catégorie : {{ allcategories.titre }}</h1>
+    <div class="doublediv">
+        <div class="articles-container">
+            {% if allcategories.articles is not empty %}
+                <h2>Les articles de cette catégorie</h2>
+                {% for article in allcategories.articles %}
+                    <h3><a href="{{ path('details_article', {'id': article.id}) }}">{{ article.titre }}</a></h3>
+
+                {% endfor %}
+                {% else %}
+                    <h3>Il n'y a pas d'article dans cette catégorie</h3>
+            {% endif %}
+        </div>
+    </div>
+
+{{ include('categorie/admin.html.twig')}}
+
+
+{% endblock %}

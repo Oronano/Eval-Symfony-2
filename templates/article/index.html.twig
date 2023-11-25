@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ArticleController!{% endblock %}
+
+{% block body %}
+    <h1>Tous les Articles</h1>
+    {% for article in allarticles %}
+        <div>
+            <h2>{{ article.titre }}</h2>
+            <p> Catégorie : {{ article.categorie.titre}}
+            <p>{{ article.dateCreation|date('Y-m-d H:i:s') }}</p>
+            <a href="{{ path('details_article', {'id': article.id}) }}">show</a>
+        </div>
+    {% endfor %}
+{% endblock %}

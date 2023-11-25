@@ -1,0 +1,20 @@
+{# Page d'accueil #}
+{% if userRole.0 is same as "ROLE_ADMIN" and app.request.attributes.get('_route') == 'app_categories' %}
+    <div class="admin-section">
+        <h2>Create!</h2>
+        <a href="{{ path('add_categorie') }}">Créer une catégorie</a>
+        <a href="{{ path('add_article') }}">Créer une article</a>
+    </div>
+{% endif %}
+
+{# Details Categorie #}
+{% if userRole.0 is same as "ROLE_ADMIN" and app.request.attributes.get('_route') == 'details_categorie' %}
+<h3> Modifier la catégorie </h3>
+{{ form_start(form) }}
+    {{ form_errors(form) }}
+    <br>
+    {{ form_row(form.titre) }}
+    {{ form_row(form.submit) }}
+{{ form_end(form) }}
+    <a href="{{ path('delete_categorie', {'id': allcategories.id}) }}">Supprimer</a>
+{% endif %}

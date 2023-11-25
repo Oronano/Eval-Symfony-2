@@ -1,0 +1,11 @@
+{% for com in coms %}
+    {% if com.article.id == allarticles.id %}
+        <h3>{{ com.commentaire }}</h3>
+        <p>{{ com.datePublication|date('Y-m-d H:i:s') }}</p>
+        {% if com.etat == 1 %}
+            <a href="{{ path('check_article', {'id': com.id}) }}">Dépublier</a>
+        {% else %}
+            <a href="{{ path('check_article', {'id': com.id}) }}">Publier</a>
+        {% endif %}
+    {% endif %}
+{% endfor %}
